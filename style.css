@@ -36,10 +36,11 @@
   display: flex;
   flex-direction: column;
 }
-#lable {
+.lab {
     font-size: 25px;
     font-family: 'Lato', sans-serif;
-    color: black;
+    font-weight: bold;
+    color: rgb(13, 144, 231);
     padding: 10px;
 }
 input {
