@@ -5,6 +5,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+#error {
+  text-align: center;
+    color: red;
+    font-size: 22px;
+    border: 2px solid red;
+    margin: 0 200px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.showError {
+  display: none;
+}
 .container {
   /* background-image: url(https://img.freepik.com/free-vector/mother-child-appointment-hospital-2d-vector-isolated-illustration-pediatric-office-visit-flat-characters-cartoon-background-well-baby-checkup-visit-primary-care-doctor-colourful-scene_151150-5662.jpg?size=626&ext=jpg); */
     background-size: contain;
@@ -63,7 +77,7 @@ input {
     font-weight: bold;
 }
 .content-right {
-  flex: 1;
+  flex: 3;
   padding: 10px;
   border: 2px solid black;
   border-radius: 10px;

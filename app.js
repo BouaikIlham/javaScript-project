@@ -5,26 +5,35 @@ const subInput = document.getElementById('sub-input')
 const phoneInput = document.getElementById('phone-input')
 const dateInput = document.getElementById('date-input')
 const list = document.querySelector('.content-right')
+const error = document.getElementById('error')
+
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    if (firstInput.value){
-        createApp(firstInput.value)
-    } 
+    if(firstInput.value && lastInput.value && subInput.value && phoneInput.value && dateInput.value ) {
+        createApp(firstInput.value, lastInput.value, subInput.value, phoneInput.value, dateInput.value)
+    } else {
+        error.classList.remove("showError")
+        setTimeout(() => {
+            error.classList.add("showError")
+        }, 3000)
+    }
+
     firstInput.value = ""
-    if (lastInput.value){
-        createApp(lastInput.value)
-    } 
     lastInput.value = ""
-    if (subInput.value){
-        createApp(subInput.value)
-    } 
     subInput.value = ""
+    phoneInput.value = "" 
+    dateInput.value = "" 
+    
 })
 const showAppointment = (app) => {
     const li = document.createElement("li")
     li.classList.add("item");
     const p = document.createElement("p");
-    p.textContent = app.value
+    console.log(app)
+    for(value in app) {
+        p.textContent +=  app[value] +  ", "
+    }
     // p.setAttribute("data-id", app.id);
 
     const iconDelete = document.createElement("i");
@@ -35,9 +44,13 @@ const showAppointment = (app) => {
 
 }
 
-const createApp = (value) => {
+const createApp = (firstName, lastName, subject, phone, date) => {
     let newApp = {
-      value: value
+        firstName,
+        lastName,
+        subject,
+        phone,
+        date
     };
     showAppointment(newApp);
 }
